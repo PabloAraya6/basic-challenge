@@ -1,0 +1,61 @@
+// EJERCICIO 4
+const getPayAmount = async () => {
+    if (_isDead) return deadAmount();
+    if (_isSeparated) return separatedAmount();
+    if (_isRetired) return retiredAmount();
+
+    return normalPayAmount();
+};
+
+// EJERCICIO 5
+abstract class ProductType {
+    ...
+    abstract double Price()
+}
+
+class Grams extends ProductType {
+    ...
+    public double Price() {
+        return Quantity * 6m / 1000;
+    }
+}
+class Bottle extends ProductType {
+    ...
+    public double Price() {
+        return Quantity * 3m;
+    }
+}
+class Bag extends ProductType {
+    ...
+    public double Price() {
+        var total += Quantity * .2m;
+        var setsOfFour = Quantity / 4;
+        total -= setsOfFour * .15m; //discount on groups of 4 items
+        return total;
+    }
+}
+
+
+// EJERCICIO 3 - Polimorfismo
+abstract class Employee {
+    ...
+    abstract int GetPaymentAmount()
+}
+
+class Engineer extends Employee {
+    public int GetPaymentAmount(){
+        return MonthlySalary;   
+    }
+}
+
+class Salesman extends Employee {
+    public int GetPaymentAmount(){
+        return MonthlySalary + Commission;
+    }
+}
+
+class Manager extends Employee {
+    public int GetPaymentAmount(){
+        return MonthlySalary + Bonus;
+    }
+}
